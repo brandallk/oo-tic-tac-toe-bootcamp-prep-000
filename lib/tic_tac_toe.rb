@@ -13,4 +13,6 @@ class TicTacToe
     [0,4,8], # top-right to bottom-left diagonal
     [2,4,6], # top-left to bottom-right diagonal
   ]
+  
+  
 end
