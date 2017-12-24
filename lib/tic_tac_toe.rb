@@ -23,7 +23,9 @@ class TicTacToe
     puts "#{row_1}\n#{line}\n#{row_2}\n#{line}\n#{row_3}"
   end
   
-  
+  def input_to_index(input)
+    input.to_i - 1
+  end
 end
 
 
