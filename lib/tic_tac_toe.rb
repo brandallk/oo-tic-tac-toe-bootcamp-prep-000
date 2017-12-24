@@ -66,7 +66,26 @@ class TicTacToe
     turn_count(@board).even? ? "X" : "O"
   end
   
+  def won?(board)
+    WIN_COMBINATIONS.detect do |combo|
+      position_values = [
+        board[combo[0]],
+        board[combo[1]],
+        board[combo[2]]
+      ]
+      [["X","X","X"], ["O","O","O"]].include? position_values
+    end
+  end
   
+  def full?(board)
+    board.all? do |position|
+      position_taken?(board, board.index(position))
+    end
+  end
+  
+  def draw?(board)
+    full?(board) && !won?(board)
+  end
 end
 
 
