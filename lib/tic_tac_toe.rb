@@ -96,19 +96,19 @@ class TicTacToe
     won? ? @board[winning_positions[0]] : nil
   end
   
-  def play(board)
+  def play
     current_turn = 0
-    until over?(board)
+    until over?
       current_turn += 1
-      turn(board)
+      turn
     end
-    if won?(board)
-      if winner(board) == "X"
+    if won?
+      if winner == "X"
         puts "Congratulations X!"
       else
         puts "Congratulations O!"
       end
-    elsif draw?(board)
+    elsif draw?
       puts "Cat's Game!"
     end
   end
