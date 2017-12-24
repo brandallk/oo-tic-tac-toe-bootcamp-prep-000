@@ -38,6 +38,33 @@ class TicTacToe
   def valid_move?(index)
     index.between?(0, 8) && !position_taken?(@board, index)
   end
+  
+  def turn(board)
+    puts "Please enter 1-9:"
+    input = gets.strip
+    index = input_to_index(input)
+    character = current_player(board)
+    if valid_move?(board, index)
+      move(board, index, character)
+    else
+      turn(board)
+    end
+    display_board(board)
+  end
+  
+  def turn_count(board)
+    count = 0
+    for square in board
+      if ["X", "O"].include? square
+        count += 1
+      end
+    end
+    count
+  end
+  
+  def current_player(board)
+    turn_count(board).even? ? "X" : "O"
+  end
 end
 
 
