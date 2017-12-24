@@ -87,7 +87,14 @@ class TicTacToe
     full? && !won?
   end
   
+  def over?
+    won? || draw?
+  end
   
+  def winner
+    winning_positions = won?
+    won? ? @board[winning_positions[0]] : nil
+  end
 end
 
 
